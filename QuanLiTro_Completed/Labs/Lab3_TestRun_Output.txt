@@ -1,0 +1,157 @@
+================================================================================
+ LAB 3 - UNIT TEST EXECUTION EVIDENCE
+ Project  : Boarding House Management System (BHMS)
+ Baseline : SRS_BoardingHouseManagementSystem v1.1
+ Student  : SE196470 - Vo Thanh Hoang  |  Class: SE1923
+ Date     : 23/07/2026
+================================================================================
+
+
+> quanlitro@0.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.9 C:/Users/Asus/Downloads/QuanLiTro_extracted/QuanLiTro
+
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-01: formats millions with commas
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-02: BVA - exactly 1000 gets one separator
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-03: BVA - 999 (below 1000) has no separator
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-04: zero is returned unchanged
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-05: a small 3-digit number has no separator
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-06: accepts a numeric string input
+ ✓ src/logic/format.test.js > formatPrice() - thousands separator > UT-FMT-07: formats a 7-digit value (1,000,000)
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-08: strips commas from a formatted price
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-09: strips dots (VN thousands style)
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-10: strips currency symbol and spaces
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-11: empty string returns the default (4,000,000)
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-12: non-numeric text returns the default
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-13: non-numeric text returns a caller-supplied default
+ ✓ src/logic/format.test.js > parsePriceToNumber() - text price -> integer > UT-FMT-14: parses a plain integer string
+ ✓ src/logic/exportGuests.test.js > csvEscape() > UT-CSV-01: wraps a value in double quotes
+ ✓ src/logic/exportGuests.test.js > csvEscape() > UT-CSV-02: doubles embedded double-quotes
+ ✓ src/logic/exportGuests.test.js > csvEscape() > UT-CSV-03: null/undefined becomes an empty quoted field
+ ✓ src/logic/exportGuests.test.js > guestsToCsv() > UT-CSV-04: first line is the Vietnamese header row
+ ✓ src/logic/exportGuests.test.js > guestsToCsv() > UT-CSV-05: produces header + one line per guest
+ ✓ src/logic/exportGuests.test.js > guestsToCsv() > UT-CSV-06: includes guest name and phone in the output
+ ✓ src/logic/exportGuests.test.js > guestsToCsv() > UT-CSV-07: an empty guest list yields only the header row
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-01: valid staff account (first user) logs in
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-02: BVA - valid staff account (last user #100) logs in
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-03: admin wildcard account logs in as admin
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-04: correct phone but wrong password is rejected
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-05: unknown phone number is rejected
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-06: empty username is rejected with the "empty" message
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-07: empty password is rejected with the "empty" message
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-08: both fields empty is rejected with the "empty" message
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-09: whitespace around valid credentials is trimmed then accepted
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-10: whitespace-only username counts as empty
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-11: admin with wrong password is rejected
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-12: password check is case-sensitive
+ ✓ src/logic/auth.test.js > authenticate() - login credential validation > UT-AUTH-13: null inputs are treated as empty (no crash)
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-01: name + valid phone present -> valid
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-02: empty name -> "missing name" error
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-03: whitespace-only name -> "missing name" error
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-04: empty phone -> "missing phone" error
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-05: whitespace-only phone -> "missing phone" error
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-06: null inputs -> "missing name" (no crash)
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-20: non-numeric phone -> "invalid phone" error [BUG-008]
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-21: too-short phone (<9 digits) -> "invalid phone" error [BUG-008]
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-23: a past viewing date is rejected [SRS v1.1 UCS-01 Alt-1]
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-24: BVA - a viewing date equal to today is accepted
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-25: a future viewing date is accepted
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-26: date is not checked when no viewing date is supplied
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-27: todayIso() formats a date as YYYY-MM-DD with zero padding
+ ✓ src/logic/guestFactory.test.js > validateGuestForm() - required field validation > UT-FACT-28: todayIso() defaults to the current date
+ ✓ src/logic/guestFactory.test.js > parseViewDateTime() - "DD/MM/YYYY HH:MM" -> ISO > UT-FACT-07: parses a full date-time
+ ✓ src/logic/guestFactory.test.js > parseViewDateTime() - "DD/MM/YYYY HH:MM" -> ISO > UT-FACT-08: pads single-digit day and month
+ ✓ src/logic/guestFactory.test.js > parseViewDateTime() - "DD/MM/YYYY HH:MM" -> ISO > UT-FACT-09: date without time defaults time to 00:00
+ ✓ src/logic/guestFactory.test.js > parseViewDateTime() - "DD/MM/YYYY HH:MM" -> ISO > UT-FACT-10: empty string falls back to defaults
+ ✓ src/logic/guestFactory.test.js > parseViewDateTime() - "DD/MM/YYYY HH:MM" -> ISO > UT-FACT-11: malformed input falls back to default date
+ ✓ src/logic/guestFactory.test.js > buildGuestTitle() - room title construction > UT-FACT-12: house without a numeric prefix is kept as-is
+ ✓ src/logic/guestFactory.test.js > buildGuestTitle() - room title construction > UT-FACT-13: leading "code - " prefix is stripped from the house
+ ✓ src/logic/guestFactory.test.js > buildGuestTitle() - room title construction > UT-FACT-14: leading "P1201 - " prefix is stripped
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-15: builds a fully-populated, normalised record
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-22: customer source defaults to "" when not supplied [BUG-006]
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-16: blank consultation price falls back to 4,000,000
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-17: empty note becomes an empty string
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-18: result status defaults to "Mới xem phòng"
+ ✓ src/logic/guestFactory.test.js > buildGuestRecord() - full record construction > UT-FACT-19: id defaults to a positive timestamp when not supplied
+ ✓ src/logic/guestFilter.test.js > matchesGuestPrice() - price predicate (BVA at 2,000,000) > UT-GUEST-01: empty range matches any price
+ ✓ src/logic/guestFilter.test.js > matchesGuestPrice() - price predicate (BVA at 2,000,000) > UT-GUEST-02: under2 - 1,999,999 is inside
+ ✓ src/logic/guestFilter.test.js > matchesGuestPrice() - price predicate (BVA at 2,000,000) > UT-GUEST-03: under2 - boundary 2,000,000 is OUTSIDE
+ ✓ src/logic/guestFilter.test.js > matchesGuestPrice() - price predicate (BVA at 2,000,000) > UT-GUEST-04: above2 - boundary 2,000,000 is inside
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-05: no criteria returns all 5 guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-06: full July range returns all 5 guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-07: fromDate 2026-07-15 keeps guests on/after that date (3)
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-08: BVA - fromDate equal to a guest date is inclusive
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-09: toDate 2026-07-14 keeps guests on/before that date (2)
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-10: narrow window 07-14..07-17 returns 2 guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-11: search by (partial) name is case-insensitive
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-12: search by phone substring
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-13: search by room title keyword
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-14: price under2 returns 3 guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-15: price above2 returns 2 guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-16: result filter returns the 2 "did not answer" guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-17: placeholder result "Chọn dữ liệu" is treated as no filter
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-18: combined result + price returns 1 guest
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-19: no match returns an empty list
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-20: source "fb" returns the 2 Facebook guests
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-21: source "intro" returns the single referral guest
+ ✓ src/logic/guestFilter.test.js > filterGuests() - list filtering > UT-GUEST-22: combined source(fb) + price(under2) returns 1 guest
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-01: empty range matches any price
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-02: under3 - 2,999,999 is inside
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-03: under3 - boundary 3,000,000 is OUTSIDE
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-04: 3to5 - lower boundary 3,000,000 is inside
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-05: 3to5 - upper boundary 5,000,000 is inside
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-06: above5 - boundary 5,000,000 is OUTSIDE
+ ✓ src/logic/roomFilter.test.js > matchesPriceRange() - price range predicate (BVA) > UT-ROOM-07: above5 - 5,000,001 is inside
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-08: no criteria returns all 10 rooms
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-09: price under3 returns 3 rooms (2.4M, 2.8M, 2.2M)
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-10: price 3to5 returns 6 rooms (boundaries 3.0M & 5.0M included)
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-11: price above5 returns only room #9 (6.0M)
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-12: content search matches a unique address keyword
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-13: content search is case-insensitive on the title
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-14: address search narrows by district name
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-15: district filter returns the 2 Phú Nhuận rooms
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-16: placeholder district "Chọn dữ liệu" is treated as no filter
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-17: combined price(3to5) + district(Phú Nhuận) returns 2 rooms
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-18: whitespace-only search is ignored (returns all)
+ ✓ src/logic/roomFilter.test.js > filterRooms() - list filtering > UT-ROOM-19: no match returns an empty list
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-20: ward filter keeps only "Bình Trị Đông" rooms [BUG-001]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-21: city filter "Hà Nội" matches no HCMC room [BUG-002]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-22: city filter "Hồ Chí Minh" matches all rooms [BUG-002]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-23: house filter "Chính chủ" keeps owner-occupied rooms [BUG-003]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-24: house filter "NhaTroVN" keeps the other 8 rooms [BUG-003]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-25: photo filter "has" keeps rooms with an image [BUG-004]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-26: photo filter "none" keeps rooms without an image [BUG-004]
+ ✓ src/logic/roomFilter.test.js > filterRooms() - filters fixed in this release > UT-ROOM-27: hotOnly keeps only the 2 featured rooms [BUG-010]
+ ✓ src/logic/roomFilter.test.js > sortRooms() / getVisibleRooms() - sorting fixed in this release [BUG-005] > UT-ROOM-28: priceAsc puts the cheapest room (2.2M, id 10) first
+ ✓ src/logic/roomFilter.test.js > sortRooms() / getVisibleRooms() - sorting fixed in this release [BUG-005] > UT-ROOM-29: priceDesc puts the most expensive room (6.0M, id 9) first
+ ✓ src/logic/roomFilter.test.js > sortRooms() / getVisibleRooms() - sorting fixed in this release [BUG-005] > UT-ROOM-30: newest sorts by timestamp (id 1 is newest)
+ ✓ src/logic/roomFilter.test.js > sortRooms() / getVisibleRooms() - sorting fixed in this release [BUG-005] > UT-ROOM-31: sortRooms does not mutate the input array
+ ✓ src/logic/roomFilter.test.js > sortRooms() / getVisibleRooms() - sorting fixed in this release [BUG-005] > UT-ROOM-32: getVisibleRooms filters (under3) then sorts (priceAsc)
+
+ Test Files  6 passed (6)
+      Tests  116 passed (116)
+   Start at  20:25:36
+   Duration  487ms (transform 216ms, setup 0ms, collect 352ms, tests 50ms, environment 1ms, prepare 850ms)
+
+
+================================================================================
+ CODE COVERAGE  (npm run coverage)   -- Test Plan gate: >= 80% statements
+================================================================================
+
+File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------|---------|----------|---------|---------|-------------------
+All files        |    93.9 |    91.24 |      95 |    93.9 |                   
+ auth.js         |     100 |      100 |     100 |     100 |                   
+ exportGuests.js |   69.44 |      100 |   66.66 |   69.44 | 29-39             
+ format.js       |     100 |      100 |     100 |     100 |                   
+ guestFactory.js |     100 |       80 |     100 |     100 | 25,36,44,55,69    
+ guestFilter.js  |   94.44 |    96.55 |     100 |   94.44 | 5-6               
+ roomFilter.js   |   96.87 |    89.83 |     100 |   96.87 | 6-7               
+-----------------|---------|----------|---------|---------|-------------------
+
+================================================================================
+ STATIC ANALYSIS  (npm run lint)
+================================================================================
+ESLint: 0 errors, 0 warnings (clean)

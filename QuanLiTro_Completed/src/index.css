@@ -1,0 +1,48 @@
+:root {
+  --primary-blue: #0f75bc;
+  --header-bg: #0f75bc;
+  --green-btn: #38b449;
+  --dark-grey: #6c757d;
+  --light-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --accent-green: #28a745;
+  --accent-red: #dc3545;
+  --accent-orange: #ff7c00;
+  
+  --sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f3f5;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
